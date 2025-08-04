@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deliver X - About</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom SCSS compiled to CSS -->
+    <style>
+      /* Variables */
+      :root {
+        --primary-color: #ff5722;
+        --text-dark: #212529;
+        --text-light: #6c757d;
+        --light-bg: #f8f9fa;
+      }
+
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      /* Header Styles */
+      .navbar {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark) !important;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: var(--text-dark) !important;
+        font-weight: 500;
+        margin: 0 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: var(--primary-color) !important;
+      }
+
+      .btn-register {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-register:hover {
+        background: #e64a19;
+        transform: translateY(-2px);
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+      }
+
+      .section-label {
+        color: var(--primary-color);
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+
+      .hero-description {
+        font-size: 1.125rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        max-width: 500px;
+      }
+
+      .hero-image {
+        position: relative;
+      }
+
+      .delivery-person {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .person-img {
+        width: 100%;
+        height: 100%;
+        background-image: url("./assets/deliverer.png");
+        background-size: cover;
+        background-position: center;
+        border-radius: 12px;
+      }
+
+      .food-card {
+        position: absolute;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 1rem;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .food-card.card-1 {
+        top: 40%;
+        left: -20px;
+        width: 280px;
+        animation-delay: 0s;
+      }
+
+      .food-card-image {
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+        border-radius: 12px 12px 0 0;
+        margin-bottom: 1rem;
+      }
+
+      .food-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .food-card-content {
+        padding: 0 0.5rem 0.5rem;
+      }
+
+      .food-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+
+      .heart-icon {
+        color: #ccc;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .heart-icon:hover {
+        color: #ff4757;
+      }
+
+      .rating-star {
+        font-size: 0.9rem;
+        margin-right: 0.25rem;
+      }
+
+      .rating-text {
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+      }
+
+      .food-description {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.4;
+      }
+
+      .food-card.card-2 {
+        bottom: 20%;
+        right: -30px;
+        width: 150px;
+        animation-delay: 1s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Stats Section */
+      .stats-section {
+        background: white;
+        padding: 4rem 0;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-number .plus {
+        color: var(--primary-color);
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+
+      /* About Section */
+      .about-section {
+        background: var(--light-bg);
+        padding: 6rem 0;
+      }
+
+      .about-content h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+      }
+
+      .about-description {
+        font-size: 1.125rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        max-width: 600px;
+      }
+
+      .about-image {
+        position: relative;
+      }
+
+      .delivery-van {
+        width: 100%;
+        height: 600px;
+        background-image: url("./assets/delivery.jpeg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      /* Mission Section */
+      .mission-section {
+        background: white;
+        padding: 6rem 0;
+      }
+
+      .mission-content h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+      }
+
+      .phone-mockup {
+        width: 600px;
+        height: 600px;
+        background-image: url("./assets/phone.jpeg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 30px;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+      }
+
+      /* Journey Section */
+      .journey-section {
+        background: var(--light-bg);
+        padding: 6rem 0;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      .journey-left {
+        position: sticky;
+        top: 50%;
+        transform: translateY(-50%);
+        height: fit-content;
+        padding-right: 2rem;
+      }
+
+      .journey-left h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+      }
+
+      .journey-description {
+        font-size: 1.125rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 3rem;
+      }
+
+      .btn-download {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-download:hover {
+        background: #e64a19;
+        transform: translateY(-2px);
+      }
+
+      .journey-timeline {
+        padding-left: 2rem;
+      }
+
+      .timeline-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.6s ease;
+      }
+
+      .timeline-card.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .timeline-year {
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+
+      .timeline-description {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Partners Section */
+      .partners-section {
+        background: white;
+        padding: 6rem 0;
+      }
+
+      .partners-section h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+      }
+
+      .partners-description {
+        text-align: center;
+        color: var(--text-light);
+        font-size: 1.125rem;
+        margin-bottom: 4rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .partner-item {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .partner-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--light-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+
+      .partner-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+
+      .partner-description {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Press Section */
+      .press-section {
+        background: var(--light-bg);
+        padding: 6rem 0;
+      }
+
+      .press-section h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 4rem;
+        color: var(--text-dark);
+      }
+
+      .press-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        height: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .press-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .press-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .press-icon {
+        width: 30px;
+        height: 30px;
+        background: var(--primary-color);
+        border-radius: 6px;
+      }
+
+      .press-company {
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .press-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .press-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+      }
+
+      .press-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .press-date {
+        color: var(--text-light);
+        font-size: 0.875rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: white;
+        padding: 4rem 0 2rem;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .footer-content {
+        margin-bottom: 3rem;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-description {
+        color: var(--text-light);
+        line-height: 1.6;
+        max-width: 300px;
+      }
+
+      .footer-title {
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .download-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn-download-app {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-download-app:hover {
+        background: #e64a19;
+        color: white;
+      }
+
+      .city-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .city-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .city-icon.red {
+        background: #ff4757;
+      }
+      .city-icon.blue {
+        background: #3742fa;
+      }
+      .city-icon.green {
+        background: #2ed573;
+      }
+      .city-icon.yellow {
+        background: #ffa726;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .journey-left {
+          position: relative;
+          top: auto;
+          transform: none;
+          margin-bottom: 3rem;
+          padding-right: 0;
+        }
+
+        .journey-timeline {
+          padding-left: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+
+        .about-content h2,
+        .mission-content h2,
+        .journey-left h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <div class="brand-icon">📦</div>
+          Deliver X
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cart(0)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Download app</a>
+            </li>
+          </ul>
+
+          <button class="btn btn-register">Register</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-content">
+              <div class="section-label">ABOUT DELIVER X</div>
+              <h1>
+                We are here to help amazing restaurants get great customers
+              </h1>
+              <p class="hero-description">
+                At morbi adipiscing sit sed consectetur senectus Dignissim sed
+                amet tincidunt vitae ultrices ultrices amet fermentum amet neque
+                et id sed lacinia massa pretium aliquam libero et.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image">
+              <div class="delivery-person">
+                <div class="person-img"></div>
+              </div>
+              <div class="food-card card-1">
+                <div class="food-card-image">
+                  <img src="./assets/burger.png" alt="Dupler Burger" />
+                </div>
+                <div class="food-card-content">
+                  <div
+                    class="d-flex justify-content-between align-items-start mb-2"
+                  >
+                    <h6 class="food-title mb-0">Dupler Burger</h6>
+                    <div class="heart-icon">♡</div>
+                  </div>
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="rating-star">⭐</span>
+                    <span class="rating-text">4.4</span>
+                  </div>
+                  <p class="food-description mb-0">
+                    Pulvinar senectus volutpat om volu lacus tortor cras viverra
+                    pretium...
+                  </p>
+                </div>
+              </div>
+              <div class="food-card card-2">
+                <div class="text-center">
+                  <div class="mb-2">🛵</div>
+                  <small><strong>Delivery time</strong></small>
+                  <div>16 minutes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">10M<span class="plus">+</span></div>
+              <div class="stat-label">Happy customers</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">500k<span class="plus">+</span></div>
+              <div class="stat-label">Restaurants available</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">30M<span class="plus">+</span></div>
+              <div class="stat-label">Successful deliveries</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">99.9<span class="plus">%</span></div>
+              <div class="stat-label">Success rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="about-image">
+              <div class="delivery-van"></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-content">
+              <div class="section-label">ABOUT US</div>
+              <h2>Our company started back in 2016</h2>
+              <p class="about-description">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                voluptas sit aspernatur aut odit aut fugit, sed quia
+                consequuntur magni dolores eos qui ratione voluptatem sequi
+                nesciunt. Neque por
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="mission-content">
+              <div class="section-label">OUR MISSION</div>
+              <h2>Our mission is to disrupt the food industry</h2>
+              <p class="about-description">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                voluptas sit aspernatur aut odit aut fugit.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="phone-mockup"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="journey-left">
+              <div class="section-label">OUR JOURNEY</div>
+              <h2>It has been a long but incredible journey</h2>
+              <p class="journey-description">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu
+                egestas morbi sem vulputate etiam facilisis pellentesque ut
+                quis.
+              </p>
+              <button class="btn btn-download">Download app</button>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="journey-timeline">
+              <div class="timeline-card" data-year="2016">
+                <div class="timeline-year">2016</div>
+                <div class="timeline-title">Deliver X was founded</div>
+                <p class="timeline-description">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo. Nemo enim ipsam.
+                </p>
+              </div>
+
+              <div class="timeline-card" data-year="2018">
+                <div class="timeline-year">2018</div>
+                <div class="timeline-title">
+                  Raised Series A at $50M valuation
+                </div>
+                <p class="timeline-description">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo. Nemo enim ipsam.
+                </p>
+              </div>
+
+              <div class="timeline-card" data-year="2019">
+                <div class="timeline-year">2019</div>
+                <div class="timeline-title">
+                  Raised Series B at $600M valuation
+                </div>
+                <p class="timeline-description">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo. Nemo enim ipsam.
+                </p>
+              </div>
+
+              <div class="timeline-card" data-year="2022">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-title">
+                  Raised Series C at $3B valuation
+                </div>
+                <p class="timeline-description">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo. Nemo enim ipsam.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+      <div class="container">
+        <div class="section-label text-center">OUR PARTNERS</div>
+        <h2>We don't walk alone, Deliver X works thanks to our partners</h2>
+        <p class="partners-description">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu
+          egestas morbi sem vulputate etiam facilisis pellentesque ut quis.
+        </p>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="partner-item">
+              <div class="partner-icon">👤</div>
+              <h3 class="partner-title">Customers</h3>
+              <p class="partner-description">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu
+                egestas morbi sem vulputate etiam facilisis.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="partner-item">
+              <div class="partner-icon">🏪</div>
+              <h3 class="partner-title">Restaurants</h3>
+              <p class="partner-description">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu
+                egestas morbi sem vulputate etiam facilisis.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="partner-item">
+              <div class="partner-icon">🛵</div>
+              <h3 class="partner-title">Riders</h3>
+              <p class="partner-description">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu
+                egestas morbi sem vulputate etiam facilisis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Press Section -->
+    <section class="press-section">
+      <div class="container">
+        <div class="section-label text-center">PRESS & NEWS</div>
+        <h2>See what the press says about Deliver X</h2>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="press-card">
+              <div class="press-logo">
+                <div class="press-icon"></div>
+                <span class="press-company">company</span>
+              </div>
+              <h3 class="press-title">
+                Deliver X raises $26M in series B funding for growth
+              </h3>
+              <div class="press-meta">
+                <a href="#" class="press-link">Read more →</a>
+                <span class="press-date">January 22, 2023</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="press-card">
+              <div class="press-logo">
+                <div
+                  class="press-icon"
+                  style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e)"
+                ></div>
+                <span class="press-company">Company</span>
+              </div>
+              <h3 class="press-title">
+                Deliver X claims to be the #1 player in the delivery industry
+              </h3>
+              <div class="press-meta">
+                <a href="#" class="press-link">Read more →</a>
+                <span class="press-date">December 15, 2022</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="press-card">
+              <div class="press-logo">
+                <div
+                  class="press-icon"
+                  style="background: linear-gradient(45deg, #ff5722, #ff7043)"
+                ></div>
+                <span class="press-company">company</span>
+              </div>
+              <h3 class="press-title">
+                Introducing curbside ordering with Deliver X
+              </h3>
+              <div class="press-meta">
+                <a href="#" class="press-link">Read more →</a>
+                <span class="press-date">Sep 18, 2022</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="press-card">
+              <div class="press-logo">
+                <div
+                  class="press-icon"
+                  style="background: linear-gradient(45deg, #ff7043, #ff8a65)"
+                ></div>
+                <span class="press-company">Company</span>
+              </div>
+              <h3 class="press-title">
+                Introducing the Square POS integration with Deliver X
+              </h3>
+              <div class="press-meta">
+                <a href="#" class="press-link">Read more →</a>
+                <span class="press-date">Mar 12, 2022</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="footer-brand">
+                <div class="brand-icon">📦</div>
+                <span class="fw-bold">Deliver X</span>
+              </div>
+              <p class="footer-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
+                eiusmod tempor incididunt ut.
+              </p>
+              <div class="download-buttons">
+                <a href="#" class="btn-download-app"> 🍎 Download for iOS </a>
+                <a href="#" class="btn-download-app">
+                  🤖 Download for Android
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+              <h5 class="footer-title">Menu</h5>
+              <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Blog posts</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+              <h5 class="footer-title">Plans</h5>
+              <ul class="footer-links">
+                <li><a href="#">Plan single</a></li>
+                <li><a href="#">Register</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+              <h5 class="footer-title">Utility pages</h5>
+              <ul class="footer-links">
+                <li><a href="#">Start here</a></li>
+                <li><a href="#">Styleguide</a></li>
+                <li><a href="#">Password protected</a></li>
+                <li><a href="#">404 Not found</a></li>
+                <li><a href="#">Licenses</a></li>
+                <li><a href="#">Changelog</a></li>
+              </ul>
+              <div style="margin-top: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--primary-color);
+                    text-decoration: none;
+                    font-weight: 600;
+                  "
+                  >Browse More Templates</a
+                >
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+              <h5 class="footer-title">Available in</h5>
+              <div class="city-item">
+                <div
+                  class="city-icon"
+                  style="background: #ff4757; font-size: 0.8rem"
+                >
+                  🏪
+                </div>
+                <span>San Francisco, CA</span>
+              </div>
+              <div class="city-item">
+                <div
+                  class="city-icon"
+                  style="background: #ffa726; font-size: 0.8rem"
+                >
+                  🏖️
+                </div>
+                <span>Los Angeles, CA</span>
+              </div>
+              <div class="city-item">
+                <div
+                  class="city-icon"
+                  style="background: #42a5f5; font-size: 0.8rem"
+                >
+                  🗽
+                </div>
+                <span>New York, NY</span>
+              </div>
+              <div class="city-item">
+                <div
+                  class="city-icon"
+                  style="background: #26c6da; font-size: 0.8rem"
+                >
+                  🏔️
+                </div>
+                <span>Seattle, WA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center pt-3 border-top">
+          <p class="mb-0 text-muted">© 2024 Deliver X. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Timeline Animation Script -->
+    <script>
+      // Timeline card animation on scroll
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all timeline cards
+      document.addEventListener("DOMContentLoaded", () => {
+        const timelineCards = document.querySelectorAll(".timeline-card");
+        timelineCards.forEach((card) => {
+          observer.observe(card);
+        });
+      });
+    </script>
+  </body>
+</html>
